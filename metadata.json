@@ -1,0 +1,6 @@
+{
+  "name": "YT-Audio",
+  "description": "Download YouTube videos, convert them to high-quality MP3s, and preview them in an ultra-modern web player.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
