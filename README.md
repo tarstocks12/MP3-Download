@@ -53,3 +53,31 @@ To build the React frontend and compile the Express backend into a single Common
 npm run build
 npm start
 ```
+
+## Desktop Application (Windows 11)
+
+You can build this repository into a standalone Windows 11 executable using Electron. This packages both the frontend UI and the Express backend into a single downloadable app.
+
+### Prerequisites for Windows Packaging
+Before building the Windows executable, you must download the following native Windows binaries and place them directly in the root folder of this project (next to `package.json`):
+1. **`yt-dlp.exe`**: Download from the [yt-dlp GitHub Releases](https://github.com/yt-dlp/yt-dlp/releases).
+2. **`ffmpeg.exe`** and **`ffprobe.exe`**: Download a Windows build of FFmpeg (e.g., from [gyan.dev](https://www.gyan.dev/ffmpeg/builds/)) and extract the executables.
+
+*Note: The packaging script (`electron-builder`) is configured to bundle these `.exe` files into the root of the final app.*
+
+### Build the Windows Executable
+Once the dependencies are installed and the `.exe` binaries are in the root directory, run:
+```bash
+npm run electron:build
+```
+
+This command will:
+1. Compile the React frontend and Express backend.
+2. Package the application using `electron-builder`.
+3. Output a standalone Windows installer (`.exe`) inside the newly created `/release` directory.
+
+### Run Desktop Version Locally
+To preview the Electron desktop experience locally before packaging:
+```bash
+npm run electron:start
+```

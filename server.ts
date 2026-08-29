@@ -28,7 +28,8 @@ app.post("/api/convert", async (req, res) => {
 
   try {
     // 1. Get video info first
-    const ytDlpPath = path.join(process.cwd(), "yt-dlp");
+    const ytDlpExecutable = process.platform === "win32" ? "yt-dlp.exe" : "yt-dlp";
+    const ytDlpPath = path.join(process.cwd(), ytDlpExecutable);
     
     // Using raw yt-dlp to get info as youtube-dl-exec might have issues resolving the local binary sometimes
     const { stdout: infoJsonStr } = await execPromise(`${ytDlpPath} --dump-json "${url}"`);
